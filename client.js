@@ -79,7 +79,7 @@ for (let i=0; i<employees.length; i++){
 function bonusCalculator (employee){
   //console.log('this is employee', employee);
     let newObject = {
-      name: '',
+      name: employee.name,
       bonusPercentage: 0,
       totalCompensation: 0,
       totalBonus: 0
@@ -98,7 +98,17 @@ function bonusCalculator (employee){
     newObject.bonusPercentage += .05;
     //console.log(employee.employeeNumber.length);
   }
-  //console.log(newObject)
+  if (employee.annualSalary > 65000){
+    newObject.bonusPercentage -= .01;
+  }
+  if (newObject.bonusPercentage > .13) {
+    newObject.bonusPercentage = .13;
+  } else if (newObject.bonusPercentage < 0) {
+    newObject.bonusPercentage = 0;
+  }
+    newObject.totalBonus = Number(employee.annualSalary) * newObject.bonusPercentage;
+    newObject.totalCompensation = Number(employee.annualSalary) + newObject.totalCompensation;
+  console.log(newObject)
 }
   
   //bonusCalculator();
