@@ -87,14 +87,14 @@ function bonusCalculator (employee){
     // this block of code assigns bonus percentage to the new object
     if (employee.reviewRating <= 2){
       newObject.bonusPercentage = 0
-    } else if (employee.reviewRating == 4){
+    } else if (employee.reviewRating == 3){
       newObject.bonusPercentage = .04
     } else if (employee.reviewRating == 4){
       newObject.bonusPercentage = .06
     } else if (employee.reviewRating == 5){
       newObject.bonusPercentage = .1
   }
-  if (employee.employeeNumber.length == 4){
+  if (employee.employeeNumber.length == 4 && employee.reviewRating > 2){
     newObject.bonusPercentage += .05;
     //console.log(employee.employeeNumber.length);
   }
